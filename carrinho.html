@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Carrinho – Segunda Mão Mangop</title>
+  <link rel="icon" type="image/jpeg" href="imagens/logo-mangop.jpg">
+  <style>
+    :root { --primary:#0077b6; --accent:#90e0ef; --bg:#f7fbff; --text:#023e8a; --card:#fff; }
+    body { font-family:'Segoe UI',system-ui,sans-serif; margin:0; background:var(--bg); color:var(--text); }
+
+    header { background:var(--primary); color:#fff; padding:1rem; display:flex; align-items:center; gap:1rem; flex-wrap:wrap; }
+    header a { text-decoration:none; display:flex; align-items:center; gap:1rem; color:#fff; }
+    header h1 { margin:0; font-size:1.2rem; }
+    header p { margin:0; font-size:0.9rem; font-style:italic; }
+
+    main { max-width:900px; margin:2rem auto; padding:1rem; background:var(--card); border-radius:12px; box-shadow:0 2px 6px rgba(0,0,0,.08); }
+    h2 { border-bottom:2px solid #eef0f4; padding-bottom:.5rem; }
+    .cart-item { display:grid; grid-template-columns:1fr auto auto; gap:.5rem; align-items:center; margin-bottom:.8rem; }
+    .cart-total { display:flex; justify-content:space-between; padding-top:.6rem; border-top:2px solid #eef0f4; font-weight:600; margin-top:.5rem; }
+
+    button { background:var(--primary); color:#fff; border:none; padding:.5rem .8rem; border-radius:6px; cursor:pointer; font-size:.9rem; }
+    button.outline { background:transparent; color:var(--primary); border:1px solid var(--primary); }
+    .btn-acao { display:inline-block; margin:.5rem .3rem 0 0; padding:.6rem 1rem; border-radius:6px; font-weight:600; text-decoration:none; color:#fff; }
+    .btn-whatsapp { background:#25D366; }
+    .btn-publicar { background:#0077b6; }
+    .btn-carrinho { background:#0096c7; }
+    .btn-home { background:#ff8800; }
+
+    .pagamento { margin-top:1rem; font-size:0.95rem; background:#e0f7fa; padding:1rem; border-radius:8px; }
+    .pagamento strong { color:#0077b6; }
+
+    footer { background:var(--accent); color:var(--text); text-align:center; padding:1rem; margin-top:2rem; line-height:1.6; }
+
+    @media (max-width:600px){ main{ margin:1rem; padding:1rem; } .cart-item{ grid-template-columns:1fr; gap:.3rem; } }
+  </style>
+</head>
+<body>
+  <header>
+    <a href="index.html">
+      <img src="imagens/logo-mangop.jpg" alt="Logomarca Segunda Mão Mangop" style="height:60px;" />
+      <div>
+        <h1>Segunda Mão Mangop</h1>
+        <p>Não é lixo, é oportunidade</p>
+      </div>
+    </a>
+  </header>
+
+  <main>
+    <h2>🛒 Carrinho de Compras</h2>
+    <div id="cart-items"></div>
+    <div class="cart-total">
+      <span>Total</span>
+      <span id="cart-total">0 Kz</span>
+    </div>
+
+    <div class="pagamento">
+      <strong>💳 Escolha o método de pagamento:</strong><br><br>
+      <label><input type="radio" name="pagamento" value="Multicaixa Express" checked> Multicaixa Express</label><br>
+      <label><input type="radio" name="pagamento" value="IBAN"> Transferência IBAN</label><br>
+      <label><input type="radio" name="pagamento" value="TPA"> TPA (no acto da entrega)</label><br><br>
+      <div>
+        IBAN: <strong>AO06000600000100000000123</strong><br>
+        Multicaixa Express: <strong>923 456 789</strong> (Segunda Mão Mangop)
+      </div>
+    </div>
+
+    <button id="checkoutBtn">Finalizar Compra via WhatsApp</button>
+    <div style="margin-top:1rem;">
+      <a href="https://wa.me/244976194731" target="_blank" class="btn-acao btn-whatsapp">Conversar no WhatsApp</a>
+      <a href="publicar.html" class="btn-acao btn-publicar">📢 Publicar anúncio</a>
+      <a href="index.html" class="btn-acao btn-home">🏠 Voltar à Home</a>
+    </div>
+  </main>
+
+  <footer>
+    Segunda Mão Mangop – Não é lixo, é oportunidade<br>
+    📍 Kilamba, Luanda – Angola | 📱 WhatsApp: +244976194731
+  </footer>
+
+  <script>
+    const fmtKZ = (v) => `${v.toLocaleString('pt-PT')} Kz`;
+    const byId = (id) => document.getElementById(id);
+
+    let cart = JSON.parse(localStorage.getItem("carrinhoSegundaMaoMangop")) || [];
+
+    function renderCart() {
+      const itemsEl = byId("cart-items");
+      itemsEl.innerHTML = "";
+      cart.forEach((item, index) => {
+        const subtotal = item.price * (item.quantidade || 1);
+        const row = document.createElement("div");
+        row.className = "cart-item";
+        row.innerHTML = `
+          <span>${item.name}</span>
+          <span>${fmtKZ(item.price)} (cada)</span>
+          <div>
+            <button onclick="alterarQuantidade(${index}, -1)">-</button>
+            <span>${item.quantidade || 1}</span>
+            <button onclick="alterarQuantidade(${index}, 1)">+</button>
+            <span>Subtotal: ${fmtKZ(subtotal)}</span>
+            <button class="outline" onclick="removeFromCart(${index})">Remover</button>
+          </div>
+        `;
+        itemsEl.appendChild(row);
+      });
+      const total = cart.reduce((sum, i) => sum + i.price * (i.quantidade || 1), 0);
+      byId("cart-total").textContent = fmtKZ(total);
+    }
+
+    function alterarQuantidade(index, delta) {
+      cart[index].quantidade = (cart[index].quantidade || 1) + delta;
+      if (cart[index].quantidade <= 0) {
+        removeFromCart(index);
+      } else {
+        localStorage.setItem("carrinhoSegundaMaoMangop", JSON.stringify(cart));
+        renderCart();
+      }
+    }
+
+    function removeFromCart(index) {
+      cart.splice(index, 1);
+      localStorage.setItem("carrinhoSegundaMaoMangop", JSON.stringify(cart));
+      renderCart();
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      renderCart();
+      byId("checkoutBtn").addEventListener("click", () => {
+        const total = cart.reduce((sum, i) => sum + i.price * (i.quantidade || 1), 0);
+        const pagamentoSelecionado = document.querySelector('input[name="pagamento"]:checked').value;
+        const mensagem = encodeURIComponent(`Olá Mangop 👋\nQuero finalizar a compra dos seguintes itens:\n\n` +
+          cart.map(i => `• ${i.name} – ${fmtKZ(i.price)} x ${i.quantidade || 1}`).join("\n") +
+          `\n\n💰 Total: ${fmtKZ(total)}\n📌 Forma de pagamento: ${pagamentoSelecionado}`);
+        window.open(`https://wa.me/244976194731?text=${mensagem}`, "_blank");
+
+        // 🔄 Limpar carrinho e voltar ao index
+        localStorage.removeItem("carrinhoSegundaMaoMangop");
+        cart = [];
+        renderCart();
+        setTimeout(() => { window.location.href = "index.html"; }, 2000);
+      });
+    });
+  </script>
+</body>
+</html>
