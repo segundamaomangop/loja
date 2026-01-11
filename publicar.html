@@ -3,19 +3,17 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Publicar Anúncio!! – Segunda Mão Mangop</title>
+  <title>Publicar Anúncio – Segunda Mão Mangop</title>
   <link rel="icon" type="image/jpeg" href="imagens/logo-mangop.jpg">
   <style>
     :root { --primary:#0077b6; --accent:#90e0ef; --bg:#f7fbff; --text:#023e8a; --card:#fff; }
     body { font-family:'Segoe UI',system-ui,sans-serif; margin:0; background:var(--bg); color:var(--text); }
 
-    /* Cabeçalho */
     header { background:var(--primary); color:#fff; padding:1rem; display:flex; align-items:center; gap:1rem; flex-wrap:wrap; }
     header a { text-decoration:none; display:flex; align-items:center; gap:1rem; color:#fff; }
     header h1 { margin:0; font-size:1.2rem; }
     header p { margin:0; font-size:0.9rem; font-style:italic; }
 
-    /* Conteúdo */
     main { max-width:700px; margin:2rem auto; padding:1rem; background:var(--card); border-radius:12px; box-shadow:0 2px 6px rgba(0,0,0,.08); }
     h2 { border-bottom:2px solid #eef0f4; padding-bottom:.5rem; }
     form { display:flex; flex-direction:column; gap:1rem; }
@@ -23,7 +21,6 @@
     input, select, textarea { padding:.6rem; border:1px solid #ccc; border-radius:6px; font-size:1rem; }
     button { background:var(--primary); color:#fff; border:none; padding:.7rem; border-radius:6px; cursor:pointer; font-size:1rem; font-weight:600; }
 
-    /* Botões institucionais */
     .btn-acao { display:inline-block; margin:.5rem .3rem 0 0; padding:.6rem 1rem; border-radius:6px; font-weight:600; text-decoration:none; color:#fff; }
     .btn-whatsapp { background:#25D366; }
     .btn-publicar { background:#0077b6; }
@@ -32,33 +29,37 @@
 
     footer { background:var(--accent); color:var(--text); text-align:center; padding:1rem; margin-top:2rem; line-height:1.6; }
 
-    /* Responsividade */
-    @media (max-width:600px){ main{ margin:1rem; padding:1rem; } }
-	
+    .success-message {
+      margin-top:1rem;
+      padding:0.8rem;
+      background:#d4edda;
+      color:#155724;
+      border:1px solid #c3e6cb;
+      border-radius:6px;
+      font-weight:600;
+      display:none;
+    }
   </style>
 </head>
 <body>
-  <!-- Cabeçalho com logo/link para Home -->
   <header>
-  <a href="index.html" style="display:flex; align-items:center; gap:0.5rem; text-decoration:none; color:#fff;">
-    <img src="imagens/logo-mangop.jpg" alt="Logomarca Segunda Mão Mangop" style="height:100px; border-radius:8px;" />
-    <div>
-      <h1 id="site-title">Segunda Mão Mangop</h1>
-      <p id="site-slogan">Não é lixo, é oportunidade!!!</p>
-    </div>
-  </a>
-  <div class="search-bar" style="display:flex; gap:0.5rem; flex-wrap:wrap;">
-    <a href="publicar.html" class="btn-publicar">📢 Publicar anúncio</a>
-    <a href="https://wa.me/244976194731" target="_blank" class="btn-acao btn-whatsapp">
-      <img src="imagens/whatsapp-logo.jpg" alt="WhatsApp" style="height:20px; vertical-align:middle; margin-right:6px;" />
-      WhatsApp
+    <a href="index.html">
+      <img src="imagens/logo-mangop.jpg" alt="Logomarca Segunda Mão Mangop" style="height:100px; border-radius:8px;" />
+      <div>
+        <h1 id="site-title">Segunda Mão Mangop</h1>
+        <p id="site-slogan">Não é lixo, é oportunidade!!!</p>
+      </div>
     </a>
-    <a href="pagamento.html" class="btn-acao btn-pagamento">🔐 Pagamento Seguro</a>
-    <a href="carrinho.html" class="btn-acao btn-carrinho">🛒 Carrinho</a>
-  </div>
-</header>
+    <div class="search-bar" style="display:flex; gap:0.5rem; flex-wrap:wrap;">
+      <a href="publicar.html" class="btn-publicar">📢 Publicar anúncio</a>
+      <a href="https://wa.me/244976194731" target="_blank" class="btn-acao btn-whatsapp">
+        <img src="imagens/whatsapp-logo.jpg" alt="WhatsApp" style="height:20px; vertical-align:middle; margin-right:6px;" /> WhatsApp
+      </a>
+      <a href="pagamento.html" class="btn-acao btn-pagamento">🔐 Pagamento Seguro</a>
+      <a href="carrinho.html" class="btn-acao btn-carrinho">🛒 Carrinho</a>
+    </div>
+  </header>
 
-  <!-- Conteúdo principal -->
   <main>
     <h2>📢 Publicar Anúncio</h2>
     <form id="formPublicar">
@@ -82,49 +83,49 @@
       </select>
 
       <label for="preco">Preço (em Kz)</label>
-      <input type="number" id="preco" required placeholder="Ex: 45000">
+      <input type="text" id="preco" required placeholder="Ex: 200.000,00" inputmode="numeric">
+      <small style="color:#555;">Formato: milhares com ponto e decimais com vírgula (ex.: 15.500,00)</small>
 
       <button type="submit">Enviar para WhatsApp</button>
+      <div id="successMessage" class="success-message">✅ Anúncio enviado com sucesso!</div>
     </form>
-
-    <!-- Botões institucionais -->
-    <div style="margin-top:1rem;">
-      <a href="index.html" class="btn-acao btn-home">🏠 Voltar à Home</a>
-      <a href="carrinho.html" class="btn-acao btn-carrinho">🛒 Ir para Carrinho</a>
-      <a href="https://wa.me/244976194731" target="_blank" class="btn-acao btn-whatsapp">Conversar no WhatsApp</a>
-    </div>
-	<div class="banner">
-    <h3>📢 Publicar anúncio grátis</h3>
-    <p><strong>💡 Vende o que já não usas:</strong><br>Dá uma nova vida ao que está parado em tua casa e ganha um dinheiro extra.</p>
-    <p><strong>📷 Imagens do produto:</strong><br>Devem ser anexadas diretamente na conversa do WhatsApp após enviar o anúncio.</p>
-    <p><strong>⏳ Validade do anúncio:</strong><br>Os anúncios expiram automaticamente após 7 dias e são removidos do catálogo.</p>
-  </div>
   </main>
 
-  <!-- Rodapé -->
-  <<footer>
-  
+  <footer>
     Segunda Mão Mangop – Não é lixo, é oportunidade<br>
     📍 Kilamba, Luanda – Angola
-	<div style="margin-top:1rem; text-align:center;">
-  <a href="https://wa.me/244976194731" target="_blank" class="btn-acao" style="background:#25D366;">
-    <img src="imagens/whatsapp-logo.jpg" alt="WhatsApp" style="height:20px; vertical-align:middle; margin-right:6px;" />
-    Falar no WhatsApp
-  </a>
-  <a href="publicar.html" class="btn-acao btn-publicar">📢 Publicar anúncio</a>
-  <a href="carrinho.html" class="btn-acao btn-carrinho">🛒 Ir para Carrinho</a>
-</div>
   </footer>
 
-  <!-- JavaScript -->
   <script>
-    document.getElementById("formPublicar").addEventListener("submit", function(e){
+    const form = document.getElementById("formPublicar");
+    const precoInput = document.getElementById("preco");
+    const successMessage = document.getElementById("successMessage");
+
+    // Máscara AKZ: 2000000 → 2.000.000,00
+    precoInput.addEventListener("input", () => {
+      let raw = precoInput.value.replace(/\D+/g, "");
+      if (raw.length === 0) {
+        precoInput.value = "";
+        return;
+      }
+      raw = raw.replace(/^0+/, "");
+      while (raw.length < 3) raw = "0" + raw;
+      const intPart = raw.slice(0, -2);
+      const decPart = raw.slice(-2);
+      const formatted = intPart.replace(/\B(?=(\d{3})+(?!\d))/g, ".") + "," + decPart;
+      precoInput.value = formatted;
+    });
+
+    form.addEventListener("submit", function(e){
       e.preventDefault();
-      const titulo = document.getElementById("titulo").value;
-      const descricao = document.getElementById("descricao").value;
+      const titulo = document.getElementById("titulo").value.trim();
+      const descricao = document.getElementById("descricao").value.trim();
       const categoria = document.getElementById("categoria").value;
       const estado = document.getElementById("estado").value;
-      const preco = document.getElementById("preco").value;
+      const precoTexto = precoInput.value.trim();
+
+      const precoNumero = parseFloat(precoTexto.replace(/\./g, "").replace(",", "."));
+      const precoFormatado = precoNumero.toLocaleString("pt-PT", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 
       const mensagem = encodeURIComponent(
         `📢 Novo anúncio:\n\n` +
@@ -132,11 +133,17 @@
         `Descrição: ${descricao}\n` +
         `Categoria: ${categoria}\n` +
         `Estado: ${estado}\n` +
-        `Preço: ${preco} Kz\n\n` +
+        `Preço: ${precoFormatado} Kz\n\n` +
         `Por favor, anexar imagens do produto nesta conversa.`
       );
 
       window.open(`https://wa.me/244976194731?text=${mensagem}`, "_blank");
+
+      successMessage.style.display = "block";
+      form.reset();
+      precoInput.value = "";
+
+      setTimeout(() => { successMessage.style.display = "none"; }, 5000);
     });
   </script>
 </body>
