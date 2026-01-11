@@ -318,12 +318,12 @@
       renderProducts(sugestoes);
     }
 
-        // Aplicar filtros
+    // Aplicar filtros
     function aplicarFiltros() {
       const cat   = byId("filtroCategoria").value;
       const est   = byId("filtroEstado").value;
       const marca = normalize(byId("filtroMarca").value);
-      const preco = byId("filtroPreco").value;
+            const preco = byId("filtroPreco").value;
 
       let filtrados = produtos.filter(p =>
         (!cat   || p.category === cat) &&
