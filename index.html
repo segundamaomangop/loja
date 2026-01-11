@@ -54,7 +54,36 @@
     .btn-ver-todos { background:#ff8800; }
     footer { background:var(--accent); color:var(--text); text-align:center; padding:1rem; margin-top:2rem; }
     @media (max-width:900px){ .content{ grid-template-columns:1fr; } }
-    @media (max-width:600px){ header{ flex-direction:column; align-items:flex-start; gap:.6rem; } .sidebar.carrinho{ display:none; } }
+    @media (max-width:600px){
+  .sidebar.carrinho {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    max-height: 50vh; /* ocupa metade da tela no máximo */
+    overflow-y: auto;
+    background: #fff;
+    border-top: 2px solid #ccc;
+    box-shadow: 0 -4px 12px rgba(0,0,0,0.1);
+    z-index: 999;
+    padding: 1rem;
+  }
+
+  .cart-toggle {
+    position: fixed;
+    bottom: 52vh;
+    right: 20px;
+    background: #0096c7;
+    color: #fff;
+    border: none;
+    padding: 0.6rem 1rem;
+    border-radius: 50px;
+    font-weight: 600;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    z-index: 1000;
+    cursor: pointer;
+  }
+}
 	button.orange {
   background:#ff8800;
   color:#fff;
@@ -344,6 +373,15 @@
         renderProducts(produtos);
       });
     });
+	const carrinho = document.querySelector(".sidebar.carrinho");
+const toggleBtn = document.querySelector(".cart-toggle");
+
+toggleBtn.addEventListener("click", () => {
+  carrinho.classList.toggle("aberto");
+});
   </script>
+  <button class="cart-toggle" onclick="document.querySelector('.sidebar.carrinho').classList.toggle('aberto')">
+  🛒 Carrinho
+</button>
 </body>
 </html>
