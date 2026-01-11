@@ -368,13 +368,16 @@
       // Toggle do carrinho flutuante (mobile)
       const carrinho = document.querySelector(".sidebar.carrinho");
       const filtros = document.querySelector(".sidebar.filtros");
+      const produtosSecao = document.querySelector("section");
       const toggleBtn = document.querySelector(".cart-toggle");
 
       if (toggleBtn && carrinho) {
         toggleBtn.addEventListener("click", () => {
-          carrinho.classList.toggle("aberto");
-          if (window.innerWidth <= 600 && filtros) {
-            filtros.style.display = carrinho.classList.contains("aberto") ? "none" : "block";
+          const aberto = carrinho.classList.toggle("aberto");
+
+          if (window.innerWidth <= 600) {
+            if (filtros) filtros.style.display = "none"; // mantém oculto sempre
+            if (produtosSecao) produtosSecao.style.display = aberto ? "none" : "block";
           }
         });
       }
