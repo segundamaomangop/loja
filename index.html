@@ -202,27 +202,27 @@
 
     // ---------- Produtos de exemplo ----------
     const produtos = [
-      {id:1, name:"Mesa de jantar 6 lugares", price:45000, estado:"Usado", marca:"Madeira Angola", category:"Móveis"},
-      {id:2, name:"Smartphone Samsung A12", price:85000, estado:"Como novo", marca:"Samsung", category:"Eletrónica"},
-      {id:3, name:"Ventoinha de pé", price:12000, estado:"Usado", marca:"Binatone", category:"Eletrónica"},
-      {id:4, name:"Conjunto de sofás 3+2", price:95000, estado:"Como novo", marca:"DecoLux", category:"Móveis"},
-      {id:5, name:"TV LG 42\"", price:110000, estado:"Usado", marca:"LG", category:"Eletrónica"},
-      {id:6, name:"Cadeira de escritório", price:60000, estado:"Como novo", marca:"IKEA", category:"Casa e Jardim"},
-      {id:7, name:"Liquidificador", price:15000, estado:"Usado", marca:"Philips", category:"Casa e Jardim"},
-      {id:8, name:"Relógio inteligente", price:30000, estado:"Selado", marca:"Apple", category:"Moda"},
-      {id:9, name:"Máquina de lavar", price:120000, estado:"Usado", marca:"Samsung", category:"Eletrónica"},
-      {id:10, name:"Mesa de cabeceira", price:25000, estado:"Como novo", marca:"DecoLux", category:"Móveis"},
-      {id:11, name:"Aspirador", price:40000, estado:"Usado", marca:"Bosch", category:"Casa e Jardim"},
-      {id:12, name:"Tablet Lenovo", price:70000, estado:"Selado", marca:"Lenovo", category:"Eletrónica"},
-      {id:13, name:"Cama de casal", price:100000, estado:"Usado", marca:"IKEA", category:"Móveis"},
-      {id:14, name:"Máquina de café", price:35000, estado:"Como novo", marca:"Nespresso", category:"Casa e Jardim"},
-      {id:15, name:"Trotinete elétrica", price:150000, estado:"Selado", marca:"Xiaomi", category:"Moda"},
-      {id:16, name:"Coluna Bluetooth", price:20000, estado:"Usado", marca:"JBL", category:"Eletrónica"},
-      {id:17, name:"Berço", price:30000, estado:"Como novo", marca:"Chicco", category:"Móveis"},
-      {id:18, name:"Fogão 4 bocas", price:80000, estado:"Usado", marca:"Electrolux", category:"Casa e Jardim"},
-      {id:19, name:"Máquina de costura", price:50000, estado:"Usado", marca:"Singer", category:"Ferramentas"},
-      {id:20, name:"Câmara fotográfica", price:90000, estado:"Como novo", marca:"Canon", category:"Eletrónica"}
-    ];
+  {id:1, name:"Mesa de jantar 6 lugares", price:45000, estado:"Usado", marca:"Madeira Angola", category:"Móveis", image:"imagens/Mesadejantar6lugares.jpg"},
+  {id:2, name:"Smartphone Samsung A12", price:85000, estado:"Como novo", marca:"Samsung", category:"Eletrónica", image:"imagens/sample2.jpg"},
+  {id:3, name:"Ventoinha de pé", price:12000, estado:"Usado", marca:"Binatone", category:"Eletrónica", image:"imagens/sample3.jpg"},
+  {id:4, name:"Conjunto de sofás 3+2", price:95000, estado:"Como novo", marca:"DecoLux", category:"Móveis", image:"imagens/sample4.jpg"},
+  {id:5, name:"TV LG 42\"", price:110000, estado:"Usado", marca:"LG", category:"Eletrónica", image:"imagens/sample5.jpg"},
+  {id:6, name:"Cadeira de escritório", price:60000, estado:"Como novo", marca:"IKEA", category:"Casa e Jardim", image:"imagens/sample6.jpg"},
+  {id:7, name:"Liquidificador", price:15000, estado:"Usado", marca:"Philips", category:"Casa e Jardim", image:"imagens/sample7.jpg"},
+  {id:8, name:"Relógio inteligente", price:30000, estado:"Selado", marca:"Apple", category:"Moda", image:"imagens/sample8.jpg"},
+  {id:9, name:"Máquina de lavar", price:120000, estado:"Usado", marca:"Samsung", category:"Eletrónica", image:"imagens/sample9.jpg"},
+  {id:10, name:"Mesa de cabeceira", price:25000, estado:"Como novo", marca:"DecoLux", category:"Móveis", image:"imagens/sample10.jpg"},
+  {id:11, name:"Aspirador", price:40000, estado:"Usado", marca:"Bosch", category:"Casa e Jardim", image:"imagens/sample11.jpg"},
+  {id:12, name:"Tablet Lenovo", price:70000, estado:"Selado", marca:"Lenovo", category:"Eletrónica", image:"imagens/sample12.jpg"},
+  {id:13, name:"Cama de casal", price:100000, estado:"Usado", marca:"IKEA", category:"Móveis", image:"imagens/sample13.jpg"},
+  {id:14, name:"Máquina de café", price:35000, estado:"Como novo", marca:"Nespresso", category:"Casa e Jardim", image:"imagens/sample14.jpg"},
+  {id:15, name:"Trotinete elétrica", price:150000, estado:"Selado", marca:"Xiaomi", category:"Moda", image:"imagens/sample15.jpg"},
+  {id:16, name:"Coluna Bluetooth", price:20000, estado:"Usado", marca:"JBL", category:"Eletrónica", image:"imagens/sample16.jpg"},
+  {id:17, name:"Berço", price:30000, estado:"Como novo", marca:"Chicco", category:"Móveis", image:"imagens/sample17.jpg"},
+  {id:18, name:"Fogão 4 bocas", price:80000, estado:"Usado", marca:"Electrolux", category:"Casa e Jardim", image:"imagens/sample18.jpg"},
+  {id:19, name:"Máquina de costura", price:50000, estado:"Usado", marca:"Singer", category:"Ferramentas", image:"imagens/sample19.jpg"},
+  {id:20, name:"Câmara fotográfica", price:90000, estado:"Como novo", marca:"Canon", category:"Eletrónica", image:"imagens/sample20.jpg"}
+];
 
     const IMG_PH = "https://via.placeholder.com/300x300?text=Produto";
     let cart = JSON.parse(localStorage.getItem("carrinhoSegundaMaoMangop")) || [];
