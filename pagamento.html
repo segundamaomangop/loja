@@ -75,23 +75,43 @@
       .mangop-flow { margin: 16px; padding: 14px; }
       .options { grid-template-columns: 1fr; }
     }
+	.btn-carrinho {
+  background-color: #0077b6; /* azul */
+  color: #fff;
+  font-weight: bold;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: background 0.2s ease;
+}
+
+.btn-carrinho:hover {
+  background-color: #023e8a; /* azul mais escuro no hover */
+}
+
+	
   </style>
 </head>
 <body>
   <header>
-    <a href="index.html">
-      <img src="imagens/logo-mangop.jpg" alt="Logomarca Segunda Mão Mangop" style="height:56px;" />
-      <div>
-        <h1>Segunda Mão Mangop</h1>
-        <p>Não é lixo, é oportunidade!!!</p>
-      </div>
-    </a>
-    <div class="search-bar">
-      <input id="search" type="text" placeholder="Pesquisar produto..." aria-label="Pesquisar produto" />
-      <button class="orange" id="clearSearch">Limpar</button>
-      <a href="https://wa.me/244976194731" target="_blank" class="btn-acao" style="background:#25D366;">💬 WhatsApp</a>
+  <a href="index.html" style="display:flex; align-items:center; gap:0.5rem; text-decoration:none; color:#fff;">
+    <img src="imagens/logo-mangop.jpg" alt="Logomarca Segunda Mão Mangop" style="height:100px; border-radius:8px;" />
+    <div>
+      <h1 id="site-title">Segunda Mão Mangop</h1>
+      <p id="site-slogan">Não é lixo, é oportunidade!!!</p>
     </div>
-  </header>
+  </a>
+  <div class="search-bar" style="display:flex; gap:0.5rem; flex-wrap:wrap;">
+    <a href="publicar.html" class="btn-publicar">📢 Publicar anúncio</a>
+    <a href="https://wa.me/244976194731" target="_blank" class="btn-acao btn-whatsapp">
+      <img src="imagens/whatsapp-logo.jpg" alt="WhatsApp" style="height:20px; vertical-align:middle; margin-right:6px;" />
+      WhatsApp
+    </a>
+    <a href="pagamento.html" class="btn-acao btn-pagamento">🔐 Pagamento Seguro</a>
+    <a href="carrinho.html" class="btn-acao btn-carrinho">🛒 Carrinho</a>
+  </div>
+</header>
 
   <main>
     <p style="text-align:center; font-size:1.05rem; color:#023e8a; margin-bottom:20px;">
