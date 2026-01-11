@@ -88,23 +88,43 @@
         z-index:1000; cursor:pointer;
       }
     }
+	.mobile-only {
+  display: none;
+}
+
+@media (max-width: 600px) {
+  .mobile-only {
+    display: inline-block;
+    margin: 0.5rem 0;
+    background: #ff6600;
+    color: #fff;
+    padding: 8px 12px;
+    border-radius: 6px;
+    text-align: center;
+    font-weight: bold;
+  }
+}
   </style>
 </head>
 <body>
   <header>
-    <a href="index.html">
-      <img src="imagens/logo-mangop.jpg" alt="Logomarca Segunda Mão Mangop" style="height:56px; border-radius:8px;" />
-      <div>
-        <h1>Segunda Mão Mangop</h1>
-        <p>Não é lixo, é oportunidade!!!</p>
-      </div>
-    </a>
-    <div class="search-bar">
-      <input id="search" type="text" placeholder="Pesquisar produto..." aria-label="Pesquisar produto" />
-      <button class="orange" id="clearSearch" aria-label="Limpar pesquisa">Limpar</button>
-      <a href="https://wa.me/244976194731" target="_blank" class="btn-acao" style="background:#25D366;">💬 Falar no WhatsApp</a>
+  <a href="index.html">
+    <img src="imagens/logo-mangop.jpg" alt="Logomarca Segunda Mão Mangop" style="height:56px; border-radius:8px;" />
+    <div>
+      <h1>Segunda Mão Mangop</h1>
+      <p>Não é lixo, é oportunidade!!!</p>
     </div>
-  </header>
+  </a>
+
+  <!-- Botão só para mobile -->
+  <a href="publicar.html" class="btn-acao btn-publicar mobile-only">📢 Publicar anúncio</a>
+
+  <div class="search-bar">
+    <input id="search" type="text" placeholder="Pesquisar produto..." aria-label="Pesquisar produto" />
+    <button class="orange" id="clearSearch" aria-label="Limpar pesquisa">Limpar</button>
+    <a href="https://wa.me/244976194731" target="_blank" class="btn-acao" style="background:#25D366;">💬 Falar no WhatsApp</a>
+  </div>
+</header>
     <main class="content">
     <!-- Filtros -->
     <aside class="sidebar filtros">
