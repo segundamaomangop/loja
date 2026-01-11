@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pagamento Seguro – Segunda Mão Mangop</title>
+  <link rel="icon" type="image/jpeg" href="imagens/logo-mangop.jpg">
+  <style>
+    body { font-family:'Segoe UI',system-ui,sans-serif; margin:0; background:#f7fbff; color:#023e8a; }
+    header {
+      position:sticky; top:0; z-index:1000; background:#0077b6; color:#fff; padding:1rem;
+      display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap;
+    }
+    header a { text-decoration:none; display:flex; align-items:center; gap:1rem; color:#fff; }
+    header h1 { margin:0; font-size:1.2rem; }
+    header p { margin:0; font-size:0.9rem; font-style:italic; }
+    .search-bar { display:flex; gap:0.5rem; max-width:520px; width:100%; }
+    .search-bar input, .search-bar button { padding:0.6rem; border-radius:6px; border:1px solid #d8dce2; }
+    .search-bar input { flex:1; }
+    .search-bar button { background:#fff; color:#0077b6; font-weight:600; cursor:pointer; }
+    .btn-acao { display:inline-block; padding:.6rem 1rem; border-radius:6px; font-weight:600; text-decoration:none; color:#fff; }
+    .btn-publicar { background:#0077b6; }
+    button.orange { background:#ff8800; color:#fff; border:none; font-weight:600; }
+
+    footer { text-align:center; padding:20px; background:#0077b6; color:#fff; margin-top:40px; font-size:0.95rem; line-height:1.6; }
+
+    .mangop-flow {
+      max-width: 720px; margin: 24px auto; padding: 16px 20px; background: #fff;
+      border: 1px solid #e9eef3; border-radius: 12px; color: #1e2a35;
+    }
+    .flow-header { display: flex; gap: 16px; align-items: center; border-bottom: 2px solid #f1f5f9; padding-bottom: 12px; margin-bottom: 16px; }
+    .logo-wrap img { height: 56px; border-radius: 8px; object-fit: cover; }
+    .title-wrap h2 { margin: 0; font-size: 1.25rem; color: #0b6aa5; font-weight: 700; }
+    .title-wrap p { margin: 2px 0 0; color: #5f6b7a; font-size: 0.95rem; font-weight: 500; }
+
+    .flow-step {
+      display: grid; grid-template-columns: 48px 1fr; gap: 12px; align-items: start;
+      padding: 12px; background: #f8fbff; border: 1px solid #e3eef9; border-radius: 10px;
+    }
+    .icon {
+      display: grid; place-items: center; font-size: 24px; width: 48px; height: 48px;
+      background: #e7f3ff; color: #0b6aa5; border-radius: 10px; box-shadow: inset 0 0 0 2px #cfe8ff;
+    }
+    .content h3 { margin: 0 0 4px; font-size: 1.05rem; color: #0b6aa5; }
+    .content p { margin: 0; color: #3a4b5c; line-height: 1.45; }
+
+    .arrow { text-align: center; font-size: 18px; color: #8aa9c7; margin: 8px 0; }
+
+    .options {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 10px;
+    }
+    .option {
+      display: grid; grid-template-columns: 28px 1fr; gap: 8px; align-items: start;
+      padding: 10px; background: #fff; border: 1px solid #e9eef3; border-radius: 8px;
+    }
+    .opt-icon {
+      display: grid; place-items: center; font-size: 18px; width: 28px; height: 28px;
+      background: #f0f7ff; color: #0b6aa5; border-radius: 6px;
+    }
+    .option strong { color: #1e2a35; }
+    .option small { display: block; color: #5f6b7a; margin-top: 2px; }
+
+    .guarantee {
+      display: grid; grid-template-columns: 40px 1fr; gap: 10px; align-items: center;
+      margin-top: 16px; padding: 10px 12px; background: #f8fbff;
+      border: 1px dashed #cfe0f5; border-radius: 10px;
+    }
+    .guarantee .shield {
+      display: grid; place-items: center; font-size: 20px; width: 40px; height: 40px;
+      background: #e7f3ff; color: #0b6aa5; border-radius: 10px;
+      box-shadow: inset 0 0 0 2px #cfe8ff;
+    }
+
+    @media (max-width: 600px) {
+      .mangop-flow { margin: 16px; padding: 14px; }
+      .options { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <a href="index.html">
+      <img src="imagens/logo-mangop.jpg" alt="Logomarca Segunda Mão Mangop" style="height:56px;" />
+      <div>
+        <h1>Segunda Mão Mangop</h1>
+        <p>Não é lixo, é oportunidade!!!</p>
+      </div>
+    </a>
+    <div class="search-bar">
+      <input id="search" type="text" placeholder="Pesquisar produto..." aria-label="Pesquisar produto" />
+      <button class="orange" id="clearSearch">Limpar</button>
+      <a href="https://wa.me/244976194731" target="_blank" class="btn-acao" style="background:#25D366;">💬 WhatsApp</a>
+    </div>
+  </header>
+
+  <main>
+    <p style="text-align:center; font-size:1.05rem; color:#023e8a; margin-bottom:20px;">
+      Comprar na Mangop é seguro porque seguimos um fluxo transparente e protegido, garantindo confiança para comprador e vendedor.
+    </p>
+
+    <section class="mangop-flow">
+      <div class="flow-header">
+        <div class="logo-wrap"><img src="imagens/logo-mangop.jpg" alt="Segunda Mão Mangop" /></div>
+        <div class="title-wrap"><h2>Fluxo de pagamento seguro</h2><p>Não é lixo, é oportunidade</p></div>
+      </div>
+
+      <div class="flow-step"><div class="icon">🖼️</div><div class="content"><h3>Publicação do produto</h3><p>O vendedor (loja verificada ou cliente individual) publica o anúncio com fotos, descrição e preço.</p></div></div>
+      <div class="arrow">↓</div>
+
+      <div class="flow-step"><div class="icon">🔍</div><div class="content"><h3>Visualização e decisão</h3><p>O comprador navega pelos produtos, compara ofertas e decide iniciar a compra.</p></div></div>
+      <div class="arrow">↓</div>
+
+      <div class="flow-step"><div class="icon">🛒</div><div class="content"><h3>Escolha da forma de pagamento</h3><p>O comprador escolhe entre:</p>
+        <div class="options">
+          <div class="option"><span class="opt-icon">💵</span><div><strong>Pagamento na entrega</strong><small>Ideal para baixa confiança. O valor é pago diretamente ao entregador.</small></div></div>
+          <div class="option"><span class="opt-icon">🔐</span><div><strong>Custódia digital</strong><small>O valor é retido pela Mangop via Multicaixa Express ou carteira digital.</small></div></div>
+        </div>
+           <div class="arrow">↓</div>
+
+      <div class="flow-step">
+        <div class="icon">🧾</div>
+        <div class="content">
+          <h3>Confirmação da compra</h3>
+          <p>O comprador recebe o comprovativo e o vendedor é notificado para preparar a entrega.</p>
+        </div>
+      </div>
+      <div class="arrow">↓</div>
+
+      <div class="flow-step">
+        <div class="icon">🚚</div>
+        <div class="content">
+          <h3>Entrega do produto</h3>
+          <p>O produto é entregue por parceiro logístico, loja ou diretamente pelo vendedor.</p>
+        </div>
+      </div>
+      <div class="arrow">↓</div>
+
+      <div class="flow-step">
+        <div class="icon">✅</div>
+        <div class="content">
+          <h3>Validação do comprador</h3>
+          <p>O comprador confirma que recebeu o produto conforme anunciado.</p>
+        </div>
+      </div>
+      <div class="arrow">↓</div>
+
+      <div class="flow-step">
+        <div class="icon">💳</div>
+        <div class="content">
+          <h3>Liberação do pagamento</h3>
+          <p>Com a confirmação, a Mangop transfere o valor ao vendedor.</p>
+        </div>
+      </div>
+
+      <!-- Garantia -->
+      <div class="guarantee">
+        <div class="shield">🛡️</div>
+        <div>
+          <strong>Garantia Mangop</strong>
+          <p>Em caso de disputa, a Mangop protege o comprador e realiza mediação institucional.</p>
+        </div>
+      </div>
+    </section>
+
+    <p style="margin-top:20px; text-align:center; font-weight:600; color:#0077b6;">
+      Transparência, confiança e dignidade em cada compra.
+    </p>
+  </main>
+
+  <footer>
+    Segunda Mão Mangop – Não é lixo, é oportunidade<br>
+    📍 Kilamba, Luanda – Angola |
+    <img src="imagens/whatsapp-logo.jpg" alt="WhatsApp" style="height:16px; vertical-align:middle; margin-right:6px;">
+    <a href="https://wa.me/244976194731" target="_blank" style="color:#fff; text-decoration:underline;">
+      +244 976 194 731
+    </a>
+  </footer>
+</body>
+</html>
