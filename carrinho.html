@@ -33,18 +33,142 @@
     footer { background:var(--accent); color:var(--text); text-align:center; padding:1rem; margin-top:2rem; line-height:1.6; }
 
     @media (max-width:600px){ main{ margin:1rem; padding:1rem; } .cart-item{ grid-template-columns:1fr; gap:.3rem; } }
+	header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: var(--primary);
+  color: #fff;
+  padding: 0.6rem 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+header img {
+  height: 100px; /* este valor define a altura da logomarca */
+  border-radius: 8px;
+}
+
+header h1 {
+  font-size: 1.2rem;
+}
+
+header p {
+  font-size: 0.9rem;
+  font-style: italic;
+}
+header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: var(--primary);
+  color: #fff;
+  padding: 0.6rem 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+/* Botão Publicar */
+.btn-publicar {
+  background-color: #d00000;
+  color: #fff;
+  font-weight: bold;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: background 0.2s ease;
+}
+.btn-publicar:hover {
+  background-color: #a00000;
+}
+
+/* Botões genéricos */
+.btn-acao {
+  background-color: #90e0ef;
+  color: #023e8a;
+  font-weight: bold;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+/* WhatsApp verde */
+.btn-whatsapp {
+  background-color: #25D366; /* verde oficial WhatsApp */
+  color: #fff;
+  font-weight: bold;
+}
+.btn-whatsapp img {
+  height: 20px;
+  vertical-align: middle;
+  margin-right: 6px;
+}
+
+/* Pagamento */
+.btn-pagamento {
+  background-color: #ff8800;
+  color: #fff;
+}
+
+/* Carrinho */
+.btn-carrinho {
+  background-color: #0077b6;
+  color: #fff;
+  font-weight: bold;
+}
+
+/* 🔽 Mobile ajustes */
+@media (max-width: 768px) {
+  .btn-publicar,
+  .btn-acao,
+  .btn-pagamento,
+  .btn-carrinho {
+    padding: 0.3rem 0.6rem;
+    font-size: 0.8rem;
+  }
+
+  /* WhatsApp só logo no mobile */
+  .btn-whatsapp {
+    padding: 0.3rem;
+  }
+  .btn-whatsapp img {
+    margin-right: 0;
+    height: 24px; /* ligeiramente maior para ser visível sozinho */
+  }
+  .btn-whatsapp span,
+  .btn-whatsapp::after {
+    display: none; /* esconde texto, só mostra logo */
+  }
+}
   </style>
 </head>
 <body>
   <header>
-    <a href="index.html">
-      <img src="imagens/logo-mangop.jpg" alt="Logomarca Segunda Mão Mangop" style="height:60px;" />
-      <div>
-        <h1>Segunda Mão Mangop</h1>
-        <p>Não é lixo, é oportunidade</p>
-      </div>
+  <a href="index.html" style="display:flex; align-items:center; gap:0.5rem; text-decoration:none; color:#fff;">
+    <img src="imagens/logo-mangop.jpg" alt="Logomarca Segunda Mão Mangop" style="height:100px; border-radius:8px;" />
+    <div>
+      <h1 id="site-title">Segunda Mão Mangop</h1>
+      <p id="site-slogan">Não é lixo, é oportunidade!!!</p>
+    </div>
+  </a>
+  <div class="search-bar" style="display:flex; gap:0.5rem; flex-wrap:wrap;">
+    <a href="publicar.html" class="btn-publicar">📢 Publicar anúncio</a>
+    <a href="https://wa.me/244976194731" target="_blank" class="btn-acao btn-whatsapp">
+      <img src="imagens/whatsapp-logo.jpg" alt="WhatsApp" style="height:20px; vertical-align:middle; margin-right:6px;" />
+      WhatsApp
     </a>
-  </header>
+    <a href="pagamento.html" class="btn-acao btn-pagamento">🔐 Pagamento Seguro</a>
+    <a href="carrinho.html" class="btn-acao btn-carrinho">🛒 Carrinho</a>
+  </div>
+</header>
 
   <main>
     <h2>🛒 Carrinho de Compras</h2>
